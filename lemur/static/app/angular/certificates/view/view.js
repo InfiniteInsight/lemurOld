@@ -214,6 +214,7 @@ angular.module('lemur')
       });
     };
 
+    //original import function
     $scope.import = function () {
       var uibModalInstance = $uibModal.open({
         animation: true,
@@ -227,6 +228,86 @@ angular.module('lemur')
         $scope.certificateTable.reload();
       });
     };
+
+     //The below import functions might not work correctly yet
+     $scope.classifyCertificate = function () {
+      var uibModalInstance = $uibModal.open({
+        animation: true,
+        controller: 'CertificateUploadController',
+        templateUrl: '/angular/certificates/certificate/classification.tpl.html',
+        size: 'lg',
+        backdrop: 'static'
+      });
+
+      uibModalInstance.result.then(function () {
+        $scope.certificateTable.reload();
+      });
+    };
+
+
+    //The below import functions might not work correctly yet
+    $scope.importXperiOwnedCert = function () {
+      var uibModalInstance = $uibModal.open({
+        animation: true,
+        controller: 'CertificateUploadController',
+        templateUrl: '/angular/certificates/certificate/uploadXperiOwnedCert.tpl.html', //need to create this file
+        size: 'lg',
+        backdrop: 'static'
+      });
+
+      uibModalInstance.result.then(function () {
+        $scope.certificateTable.reload();
+      });
+    };
+
+    //The below import functions might not work correctly yet
+    $scope.importMSOCert = function () {
+      var uibModalInstance = $uibModal.open({
+        animation: true,
+        controller: 'CertificateUploadController',
+        templateUrl: '/angular/certificates/certificate/uploadMSOCert.tpl.html',
+        size: 'lg',
+        backdrop: 'static'
+      });
+
+      uibModalInstance.result.then(function () {
+        $scope.certificateTable.reload();
+      });
+    };
+
+
+    //The below import functions might not work correctly yet
+    $scope.importThirdPartyCert = function () {
+      var uibModalInstance = $uibModal.open({
+        animation: true,
+        controller: 'CertificateUploadController',
+        templateUrl: '/angular/certificates/certificate/uploadThirdPartyCert.tpl.html', //need to create this file
+        size: 'lg',
+        backdrop: 'static'
+      });
+
+      uibModalInstance.result.then(function () {
+        $scope.certificateTable.reload();
+      });
+    };
+
+    //The below import functions might not work correctly yet
+    $scope.importOtherCert = function () {
+      var uibModalInstance = $uibModal.open({
+        animation: true,
+        controller: 'CertificateUploadController',
+        templateUrl: '/angular/certificates/certificate/upload.tpl.html',
+        size: 'lg',
+        backdrop: 'static'
+      });
+
+      uibModalInstance.result.then(function () {
+        $scope.certificateTable.reload();
+      });
+    };
+
+
+
 
     $scope.export = function (certificateId) {
       $uibModal.open({

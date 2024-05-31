@@ -49,6 +49,7 @@ angular.module('lemur')
         });
     };
   })
+  //Add a way to edit the certificate name here
   .controller('CertificateEditController', function ($scope, $uibModalInstance, CertificateApi, CertificateService, DestinationService, NotificationService, toaster, editId) {
     CertificateApi.get(editId).then(function (certificate) {
       $scope.certificate = certificate;
@@ -453,4 +454,6 @@ angular.module('lemur')
     });
   };
 })
+
+.controller('CertificateClassificationController', function )
 ;
