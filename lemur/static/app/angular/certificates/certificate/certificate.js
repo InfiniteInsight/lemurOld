@@ -461,7 +461,7 @@ angular.module('lemur')
     $uibModalInstance.dismiss('cancel');
   };
 
-  $scope.getCertificateClassification = function (CertificateClassification) {
+  $scope.getCertificateClassification = function () {
     alert($scope.CertificateClassification)
   };
 
