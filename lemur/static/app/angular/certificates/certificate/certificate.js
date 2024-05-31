@@ -457,6 +457,7 @@ angular.module('lemur')
 
 .controller('CertificateClassificationController', function ($scope, $uibModalInstance){
 
+
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
@@ -464,8 +465,6 @@ angular.module('lemur')
   $scope.getCertificateClassification = function () {
     alert($scope.CertificateClassification)
   };
-
-  
 
   //if CertificateClassification value === Xperi Owned, MSO, third party, etc.
 });
