@@ -233,8 +233,8 @@ angular.module('lemur')
      $scope.classifyCertificate = function () {
       var uibModalInstance = $uibModal.open({
         animation: true,
-        controller: 'CertificateUploadController',
-        templateUrl: '/angular/certificates/certificate/classification.tpl.html',
+        controller: 'CertificateClassificationController',
+        templateUrl: '/angular/certificates/certificate/certificateclassification.tpl.html',
         size: 'lg',
         backdrop: 'static'
       });
