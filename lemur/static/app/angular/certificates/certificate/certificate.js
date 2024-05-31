@@ -455,11 +455,11 @@ angular.module('lemur')
   };
 })
 
-.controller('CertificateClassificationController', function ($scope, $uibModalInstance, toaster ){
+.controller('CertificateClassificationController', function ($scope, $uibModalInstance, toaster, value ){
 
-  $scope.data = {
+  $scope.getCertificateClassification = function (CertificateClassification) {
+    alert(CertificateClassification)
 
-  
   }
 
   //if CertificateClassification value === Xperi Owned, MSO, third party, etc.
