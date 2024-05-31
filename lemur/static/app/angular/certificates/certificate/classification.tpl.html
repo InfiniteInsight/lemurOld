@@ -1,19 +1,23 @@
-<div class="form-group">
-  <label class="control-label col-sm-2">
-    What is the classification of the certificate you would like to upload?
-  </label>
-  <div class="form-group">
-    <div class="col-sm-10">
-      <md-radio-group></md-radio-group>
+<div class="modal-header">
+  <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h3 class="modal-title">Certificate classification</h3>
+</div>
+<div class="modal-body">
+  <form name="uploadForm" class="form-horizontal" role="form" novalidate>
+    <div class="form-group">
+      <div class="col-sm-10">
+      <!--- <md-radio-group></md-radio-group> --->
       <input type="radio" name="CertificateClassification" value="Xperi Owned"> Xperi Owned
       <input type="radio" name="CertificateClassification" value="MSO"> MSO
       <input type="radio" name="CertificateClassification" value="Third Party"> Third Party
       <input type="radio" name="CertificateClassification" value="Other">Other
-
     </div>
   </div>
+
             <!--- set the value of the button to the value of the radio button above-->
-          <button type="button" ng-click="getCertificateClassification()" class="btn btn-primary btn-sm pull-right" value="">Submit</button> <!-- change the ng-click action to open the correct import page for Xperi owned, MSO , third party or other import modal box-->
-          <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
-          <!--- getCertificateClassification() needs to be written to check what radio button selection is made 
-          to navigate the user to the right page after this one-->
+            <button type="button" ng-click="getCertificateClassification()" class="btn btn-primary btn-sm pull-right" value="">Submit</button> <!-- change the ng-click action to open the correct import page for Xperi owned, MSO , third party or other import modal box-->
+            <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
+            <!--- getCertificateClassification() needs to be written to check what radio button selection is made 
+            to navigate the user to the right page after this one-->
+
+</div>
