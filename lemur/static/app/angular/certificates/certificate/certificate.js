@@ -455,13 +455,15 @@ angular.module('lemur')
   };
 })
 
-.controller('CertificateClassificationController', function ($scope, $uibModalInstance, toaster, value ){
+.controller('CertificateClassificationController', function ($scope){
 
   $scope.getCertificateClassification = function (CertificateClassification) {
     alert(CertificateClassification)
+  };
 
-  }
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
 
   //if CertificateClassification value === Xperi Owned, MSO, third party, etc.
-})
-;
+});
