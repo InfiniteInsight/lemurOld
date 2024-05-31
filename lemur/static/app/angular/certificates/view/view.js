@@ -234,7 +234,7 @@ angular.module('lemur')
       var uibModalInstance = $uibModal.open({
         animation: true,
         controller: 'CertificateClassificationController',
-        templateUrl: '/angular/certificates/certificate/certificateclassification.tpl.html',
+        templateUrl: '/angular/certificates/certificate/certificateClassification.tpl.html',
         size: 'lg',
         backdrop: 'static'
       });
