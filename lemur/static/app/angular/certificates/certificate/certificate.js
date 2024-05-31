@@ -455,9 +455,9 @@ angular.module('lemur')
   };
 })
 
-.controller('CertificateClassificationController', function ($scope){
+.controller('CertificateClassificationController', function ($scope, $uibModalInstance, CertificateClassification){
 
-  $scope.getCertificateClassification = function (CertificateClassification) {
+  $scope.getCertificateClassification = function () {
     alert(CertificateClassification)
   };
 
