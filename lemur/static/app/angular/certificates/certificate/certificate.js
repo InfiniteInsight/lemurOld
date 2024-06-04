@@ -480,7 +480,8 @@ angular.module('lemur')
 
         break;
       case "Other":
-        $scope.import()
+        $scope.cancel();
+        $scope.import();
         break;
 
       default:

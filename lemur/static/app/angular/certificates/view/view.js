@@ -229,7 +229,7 @@ angular.module('lemur')
       });
     };
 
-     //The below import functions might not work correctly yet
+     
      $scope.classifyCertificate = function () {
       var uibModalInstance = $uibModal.open({
         animation: true,
