@@ -464,6 +464,28 @@ angular.module('lemur')
 
   $scope.getCertificateClassification = function () {
     alert($scope.CertificateClassification)
+
+    switch ($scope.CertificateClassification) {
+      
+    
+      case "Xperi Owned":
+
+        break;
+
+      case "MSO":
+      
+        break;
+
+      case "Third Party":
+
+        break;
+      case "Other":
+        $scope.import()
+        break;
+
+      default:
+        break;
+    }
   };
 
   //if CertificateClassification value === Xperi Owned, MSO, third party, etc.
