@@ -481,7 +481,23 @@ angular.module('lemur')
         break;
       case "Other":
         $scope.cancel();
-        $scope.import();
+
+        $scope.upload = function () {
+          var uibModalInstanceOther = $uibModal.open({
+            animation: true,
+            controller: 'CertificateUploadController',
+            templateUrl: '/angular/certificates/certificate/upload.tpl.html',
+            size: 'lg',
+            backdrop: 'static'
+          });
+    
+          uibModalInstanceOther.result.then(function () {
+            $scope.certificateTable.reload();
+          });
+        };
+        
+        upload()
+        
         break;
 
       default:
