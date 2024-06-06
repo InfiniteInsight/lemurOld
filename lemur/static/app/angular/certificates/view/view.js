@@ -214,7 +214,7 @@ angular.module('lemur')
       });
     };
 
-    //original import function
+    //original import function, this might need to be removed from here since I addded it to certificate.js
     $scope.import = function () {
       var uibModalInstance = $uibModal.open({
         animation: true,

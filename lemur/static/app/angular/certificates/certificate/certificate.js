@@ -455,7 +455,7 @@ angular.module('lemur')
   };
 })
 
-.controller('CertificateClassificationController', function ($scope, $uibModalInstance){
+.controller('CertificateClassificationController', function ($scope, $uibModalInstance, $uibModal){
 
 
   $scope.cancel = function () {
@@ -463,23 +463,23 @@ angular.module('lemur')
   };
 
   $scope.getCertificateClassification = function () {
-    alert($scope.CertificateClassification)
+    alert($scope.CertificateClassification);
 
     switch ($scope.CertificateClassification) {
       
     
-      case "Xperi Owned":
+      case 'Xperi Owned':
 
         break;
 
-      case "MSO":
+      case 'MSO':
       
         break;
 
-      case "Third Party":
+      case 'Third Party':
 
         break;
-      case "Other":
+      case 'Other':
         $scope.cancel();
 
         $scope.upload = function () {
@@ -496,7 +496,7 @@ angular.module('lemur')
           });
         };
         
-        upload()
+        $scope.upload();
         
         break;
 
@@ -504,6 +504,28 @@ angular.module('lemur')
         break;
     }
   };
+})
 
-  //if CertificateClassification value === Xperi Owned, MSO, third party, etc.
+.controller('CertificatePrivateKeyPassword', function ($scope){
+  $scope.inputType = 'password';
+  $scope.showHideClass = 'glyphicon glyphicon-eye-open';
+
+  $scope.showPassword = function(){
+    if($scope.passwordField != null)
+    {
+     if($scope.inputType == 'password')
+     {
+      $scope.inputType = 'text';
+      $scope.showHideClass = 'glyphicon glyphicon-eye-close';
+     }
+     else
+     {
+      $scope.inputType = 'password';
+      $scope.showHideClass = 'glyphicon glyphicon-eye-open';
+     }
+    }
+   };
+
+
+
 });
