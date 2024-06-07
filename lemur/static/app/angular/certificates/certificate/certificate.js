@@ -1,6 +1,6 @@
 'use strict';
 
-const { template } = require("gulp-util");
+const { template } = require('gulp-util');
 
 angular.module('lemur')
   .controller('CertificateExportController', function ($scope, $uibModalInstance, CertificateApi, CertificateService, PluginService, FileSaver, Blob, toaster, editId) {
@@ -464,13 +464,11 @@ angular.module('lemur')
     $uibModalInstance.dismiss('cancel');
   };
 
-  cancel = function () {
-    $uibModalInstance.dismiss('cancel;')
-  }
 
-  reloadTable = function (){
+
+  $scope.reloadTable = function (){
     $scope.certificateTable.reload();
-  }
+  };
 
   $scope.uploadOther = function () {
     var uibModalInstanceUploadOtherCert = $uibModal.open({
@@ -495,7 +493,7 @@ angular.module('lemur')
       backdrop: 'static'
     });
 
-    uibModalInstanceUploadMSOCert.result.then(reloadTable());
+    uibModalInstanceUploadMSOCert.result.then($scope.reloadTable());
 
 
   };
@@ -511,8 +509,8 @@ angular.module('lemur')
         break;
 
       case 'MSO':
-        cancel();
-        uploadMSOCert();
+        $scope.cancel();
+        $scope.uploadMSOCert();
         break;
 
       case 'Third Party':
