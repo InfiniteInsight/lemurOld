@@ -1,5 +1,7 @@
 'use strict';
 
+const { template } = require("gulp-util");
+
 angular.module('lemur')
   .controller('CertificateExportController', function ($scope, $uibModalInstance, CertificateApi, CertificateService, PluginService, FileSaver, Blob, toaster, editId) {
     CertificateApi.get(editId).then(function (certificate) {
@@ -462,8 +464,44 @@ angular.module('lemur')
     $uibModalInstance.dismiss('cancel');
   };
 
+  cancel = function () {
+    $uibModalInstance.dismiss('cancel;')
+  }
+
+  reloadTable = function (){
+    $scope.certificateTable.reload();
+  }
+
+  $scope.uploadOther = function () {
+    var uibModalInstanceUploadOtherCert = $uibModal.open({
+      animation: true,
+      controller: 'CertificateUploadController',
+      templateUrl: '/angular/certificates/certificate/upload.tpl.html',
+      size: 'lg',
+      backdrop: 'static'
+    });
+
+    uibModalInstanceUploadOtherCert.result.then(function () {
+      $scope.certificateTable.reload();
+    });
+  };
+
+  $scope.uploadMSOCert = function (){
+    let uibModalInstanceUploadMSOCert = $uibModal.open({
+      animation: true,
+      controller: 'CertificateUploadController',
+      templateUrl: '/angular/certificates/certificate/uploadMSOCert.tpl.html',
+      size: 'lg',
+      backdrop: 'static'
+    });
+
+    uibModalInstanceUploadMSOCert.result.then(reloadTable());
+
+
+  };
+
   $scope.getCertificateClassification = function () {
-    alert($scope.CertificateClassification);
+    //alert($scope.CertificateClassification);
 
     switch ($scope.CertificateClassification) {
       
@@ -473,31 +511,16 @@ angular.module('lemur')
         break;
 
       case 'MSO':
-      
+        cancel();
+        uploadMSOCert();
         break;
 
       case 'Third Party':
 
         break;
       case 'Other':
-        $scope.cancel();
-
-        $scope.upload = function () {
-          var uibModalInstanceOther = $uibModal.open({
-            animation: true,
-            controller: 'CertificateUploadController',
-            templateUrl: '/angular/certificates/certificate/upload.tpl.html',
-            size: 'lg',
-            backdrop: 'static'
-          });
-    
-          uibModalInstanceOther.result.then(function () {
-            $scope.certificateTable.reload();
-          });
-        };
-        
-        $scope.upload();
-        
+        $scope.cancel();    
+        $scope.uploadOther();
         break;
 
       default:
@@ -511,9 +534,9 @@ angular.module('lemur')
   $scope.showHideClass = 'glyphicon glyphicon-eye-open';
 
   $scope.showPassword = function(){
-    if($scope.passwordField != null)
+    if($scope.passwordField !== null)
     {
-     if($scope.inputType == 'password')
+     if($scope.inputType === 'password')
      {
       $scope.inputType = 'text';
       $scope.showHideClass = 'glyphicon glyphicon-eye-close';

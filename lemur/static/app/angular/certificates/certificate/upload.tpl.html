@@ -1,6 +1,6 @@
 <div class="modal-header">
   <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h3 class="modal-title">Import a certificate</h3>
+  <h3 class="modal-title">Import Other Certificate</h3>
 </div>
 <div class="modal-body">
   <form name="uploadForm" class="form-horizontal" role="form" novalidate>
@@ -52,14 +52,16 @@
 
     <div class="form-group">
       <label class="control-label col-sm-2">
-        Enter Private Key Password if available</label>
-      <div class="input-group" ng-controller="CertificatePrivateKeyPassword">
-       <input type="{{inputType}}" name="password" class="form-control" ng-model="passwordField" placeholder="Enter Password for the private key if available" />
-       <span class="input-group-addon">
-        <span class="{{showHideClass}}" ng-click="showPassword()" style="cursor:pointer"></span>
-       </span>
+        Private Key Password</label>
+      <div class="col-sm-10">
+        <div class="input-group" ng-controller="CertificatePrivateKeyPassword">
+          <input type="{{inputType}}" name="password" class="form-control input-lg" ng-model="passwordField" placeholder="Private key password if available" />
+          <span class="input-group-addon">
+            <span class="{{showHideClass}}" ng-click="showPassword()" style="cursor:pointer"></span>
+          </span>
+        </div>
       </div>
-     </div>
+    </div>
 
     
 
